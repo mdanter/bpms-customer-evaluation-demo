@@ -11,8 +11,8 @@ SRC_DIR=./installs
 SUPPORT_DIR=./support
 PRJ_DIR=./projects/customer-evaluation-demo
 EAP=jboss-eap-6.1.1.zip
-BPMS=jboss-bpms-6.0.0.Beta-redhat-5-deployable-eap6.x.zip
-VERSION=6.0.0.Beta
+BPMS=jboss-bpms-6.0.0-redhat-7-deployable-eap6.x.zip
+VERSION=6.0.0.ER7
 
 # wipe screen.
 clear 
@@ -89,9 +89,14 @@ echo "  - enabling demo accounts role setup in application-roles.properties file
 echo
 cp $SUPPORT_DIR/application-roles.properties $SERVER_CONF
 
+echo "  - enabling management accounts login setup in mgmt-users.properties file..."
+echo
+cp $SUPPORT_DIR/mgmt-users.properties $SERVER_CONF
+
 echo "  - setting up demo projects..."
 echo
 cp -r $SUPPORT_DIR/bpm-suite-demo-niogit $SERVER_BIN/.niogit
+cp -r $SUPPORT_DIR/bpm-suite-demo-index $SERVER_BIN/.index
 
 echo "  - setting up mock bpm dashboard data..."
 echo
